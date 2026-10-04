@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recap KH</title>
+<style>body{background:#eee8ff;text-align:center;padding:20px;font-family:sans-serif}.box{background:#fff;padding:20px;border-radius:15px;max-width:350px;margin:auto}button{background:#6d28d9;color:#fff;padding:12px;width:100%;border:0;border-radius:10px;font-size:17px}video{width:100%;margin-top:10px;border-radius:10px}</style>
+</head>
+<body>
+<h2>Recap KH</h2>
+<div class="box">
+<input type="file" id="f" accept="video/*"><br><br>
+<button onclick="sp()">🔊 မြန်မာလို နားထောင်မယ်</button>
+<video id="v" controls></video>
+<p id="t">ရှေးတုန်းက မင်းသမီးလေးဟာ ရွာကို ကယ်ခဲ့တယ်။</p>
+</div>
+<script>
+let t=document.getElementById('t').innerText;
+document.getElementById('f').onchange=e=>{
+document.getElementById('v').src=URL.createObjectURL(e.target.files[0])
+};
+function sp(){
+speechSynthesis.cancel();
+let u=new SpeechSynthesisUtterance(t);
+u.lang='my-MM';
+speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
