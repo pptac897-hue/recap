@@ -1,1 +1,33 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recap KH</title>
+<style>
+body{margin:0;background:#f3f0ff;font-family:sans-serif;text-align:center}
+.card{background:#fff;margin:20px;padding:20px;border-radius:20px;box-shadow:0 4px 10px #0001}
+.btn{background:#6d28d9;color:#fff;padding:15px;width:100%;border:none;border-radius:12px;font-weight:bold}
+video{width:100%;border-radius:12px;margin-top:10px}
+</style>
+</head>
+<body>
+<h2>🎬 Recap KH</h2>
+<div class="card">
+<input type="file" id="f" accept="video/*">
+<button class="btn" onclick="playMyanmar()">မြန်မာလို နားထောင်မယ်</button>
+<video id="v" controls style="display:none"></video>
+<p id="t"></p>
+</div>
+<script>
+let v=document.getElementById('v');
+document.getElementById('f').onchange=e=>{v.src=URL.createObjectURL(e.target.files[0]);v.style.display='block';}
+function playMyanmar(){
+document.getElementById('t').innerText='ရှေးတုန်းက မင်းသမီးလေးတစ်ယောက်ဟာ ရွာကို ကယ်တင်ခဲ့တယ်...';
+let u=new SpeechSynthesisUtterance('ရှေးတုန်းက မင်းသမီးလေးတစ်ယောက်ဟာ ရွာကို ကယ်တင်ခဲ့တယ်');
+u.lang='my-MM';
+speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
